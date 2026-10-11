@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORDER HUB</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#070a10;color:#f5f7fb;font-family:Arial,sans-serif}button{cursor:pointer}
+header{height:70px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #252b38;background:#0b0e15;position:sticky;top:0}
+.logo{font-size:22px;font-weight:900}.logo b{color:#8b6cff}.avatar{background:#8b6cff;padding:11px 14px;border-radius:50%;font-weight:bold}
+main{max-width:1350px;margin:auto;padding:35px 5% 60px}.hero{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+small,.muted{color:#8993a5}.eyebrow{color:#20d8b2;font-size:12px;letter-spacing:2px;font-weight:bold}h1{font-size:48px;margin:7px 0;letter-spacing:-2px}.sub{color:#8993a5;max-width:650px}
+.btn{background:linear-gradient(135deg,#7658ff,#a947ff);color:white;border:0;border-radius:11px;padding:12px 17px;font-weight:bold}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}.stat,.channel,.col{background:#10151e;border:1px solid #252c39;border-radius:17px}.stat{padding:20px}.value{font-size:29px;font-weight:900;margin:7px 0}.up{color:#20d8b2;font-size:12px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.col{padding:14px;min-height:350px;background:#0d121a}.colhead{display:flex;justify-content:space-between;margin-bottom:13px;font-weight:bold}.count{background:#1a2130;color:#9aa4b5;padding:4px 8px;border-radius:8px;font-size:12px}
+.order{background:#121822;border:1px solid #283140;border-radius:14px;padding:15px;margin-bottom:10px}.top,.foot{display:flex;justify-content:space-between}.time,.items{color:#8993a5;font-size:12px}.customer{font-weight:bold;margin:10px 0 4px}.foot{align-items:center;margin-top:13px}.price{font-weight:900}.tag{font-size:10px;background:#1d2636;padding:5px 7px;border-radius:7px;color:#c5cddd}
+.section{margin-top:24px;padding:20px;background:#10151e;border:1px solid #252c39;border-radius:17px}.channels{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.channel{padding:18px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#20d8b2;margin-right:7px}
+.modal{display:none;position:fixed;inset:0;background:#000b;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.box{background:#111720;border:1px solid #2a3240;border-radius:18px;padding:25px;width:min(480px,100%)}input,select{width:100%;padding:12px;margin:7px 0 15px;background:#080c12;color:white;border:1px solid #2a3240;border-radius:9px}
+@media(max-width:950px){.board{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.channels{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){h1{font-size:35px}.hero{display:block}.hero .btn{margin-top:18px}.board,.stats,.channels{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><div class="logo">ORDER<b>HUB</b></div><button class="btn" onclick="openM()">+ New Order</button><div class="avatar">M</div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">UNIFIED ORDER MANAGEMENT</div><h1>Every order. One place.</h1><p class="sub">Collect and manage orders from your website, WhatsApp, Instagram and store from one powerful dashboard.</p></div></section>
+<section class="stats">
+<div class="stat"><small>Today's Orders</small><div class="value" id="orders">126</div><span class="up">↑ 18.4%</span></div>
+<div class="stat"><small>Today's Revenue</small><div class="value">EGP 48,920</div><span class="up">↑ 12.8%</span></div>
+<div class="stat"><small>Average Order</small><div class="value">EGP 388</div><span class="up">↑ 6.2%</span></div>
+<div class="stat"><small>Avg. Delivery</small><div class="value">27 min</div><span class="up">↓ 9 min</span></div>
+</section>
+<section class="board">
+<div class="col"><div class="colhead">New Orders <span class="count">3</span></div>
+<div class="order"><div class="top"><b>#1027</b><span class="time">2 min ago</span></div><div class="customer">Ahmed Hassan</div><div class="items">2× Chicken Burger · Fries · Cola</div><div class="foot"><span class="price">EGP 350</span><span class="tag">Website</span></div></div>
+<div class="order"><div class="top"><b>#1028</b><span class="time">5 min ago</span></div><div class="customer">Mariam Ali</div><div class="items">Family Pizza · Garlic Bread</div><div class="foot"><span class="price">EGP 420</span><span class="tag">WhatsApp</span></div></div>
+<div class="order"><div class="top"><b>#1029</b><span class="time">8 min ago</span></div><div class="customer">Omar Samir</div><div class="items">2× Pasta · Juice</div><div class="foot"><span class="price">EGP 285</span><span class="tag">Instagram</span></div></div></div>
+<div class="col"><div class="colhead">Preparing <span class="count">2</span></div>
+<div class="order"><div class="top"><b>#1024</b><span class="time">12 min</span></div><div class="customer">Youssef Adel</div><div class="items">Beef Burger · Cheese Fries</div><div class="foot"><span class="price">EGP 310</span><button class="tag" onclick="this.textContent='✓ Ready'">Mark Ready</button></div></div>
+<div class="order"><div class="top"><b>#1025</b><span class="time">15 min</span></div><div class="customer">Nour Khaled</div><div class="items">2× Crepe · Pepsi</div><div class="foot"><span class="price">EGP 260</span><button class="tag" onclick="this.textContent='✓ Ready'">Mark Ready</button></div></div></div>
+<div class="col"><div class="colhead">Ready <span class="count">2</span></div>
+<div class="order"><div class="top"><b>#1021</b><span class="time">22 min</span></div><div class="customer">Karim Mostafa</div><div class="items">Large Pizza · 2× Cola</div><div class="foot"><span class="price">EGP 390</span><button class="tag" onclick="alert('Rider assigned')">Assign Rider</button></div></div>
+<div class="order"><div class="top"><b>#1022</b><span class="time">24 min</span></div><div class="customer">Salma Hany</div><div class="items">Chicken Meal · Dessert</div><div class="foot"><span class="price">EGP 335</span><button class="tag" onclick="alert('Rider assigned')">Assign Rider</button></div></div></div>
+<div class="col"><div class="colhead">Out for Delivery <span class="count">2</span></div>
+<div class="order"><div class="top"><b>#1018</b><span class="time">31 min</span></div><div class="customer">Hassan Tarek</div><div class="items">Family Meal · 2× Juice</div><div class="foot"><span class="price">EGP 520</span><span class="tag">Rider #04</span></div></div>
+<div class="order"><div class="top"><b>#1019</b><span class="time">36 min</span></div><div class="customer">Laila Mahmoud</div><div class="items">Pasta · Salad · Water</div><div class="foot"><span class="price">EGP 245</span><span class="tag">Rider #02</span></div></div></div>
+</section>
+<section class="section"><b>Connected Channels</b><div class="channels">
+<div class="channel"><span class="dot"></span><b>Website</b><br><small>42 orders today</small></div>
+<div class="channel"><span class="dot"></span><b>WhatsApp</b><br><small>38 orders today</small></div>
+<div class="channel"><span class="dot"></span><b>Instagram</b><br><small>29 orders today</small></div>
+<div class="channel"><span class="dot"></span><b>POS / Store</b><br><small>17 orders today</small></div>
+</div></section>
+</main>
+<div class="modal" id="modal"><div class="box"><button onclick="closeM()" style="float:right;background:none;color:#aaa;border:0;font-size:22px">×</button><h2>Create New Order</h2><label>Customer</label><input id="name" placeholder="Customer name"><label>Value</label><input id="val" type="number" placeholder="350"><label>Source</label><select id="src"><option>Website</option><option>WhatsApp</option><option>Instagram</option><option>POS / Store</option></select><button class="btn" style="width:100%" onclick="addOrder()">Add Order</button></div></div>
+<script>
+function openM(){modal.classList.add('open')}function closeM(){modal.classList.remove('open')}
+function addOrder(){let n=name.value||'New Customer',v=val.value||0,s=src.value,c=document.querySelector('.col'),d=document.createElement('div');d.className='order';d.innerHTML='<div class="top"><b>#1030</b><span class="time">just now</span></div><div class="customer">'+n+'</div><div class="items">New order received</div><div class="foot"><span class="price">EGP '+v+'</span><span class="tag">'+s+'</span></div>';c.appendChild(d);orders.textContent=+orders.textContent+1;closeM()}
+</script></body></html>
